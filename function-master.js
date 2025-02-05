@@ -1,48 +1,105 @@
 //////////////////////////////////////////////////////////////////////
 // Function 1 - Object Values ////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+//I: function with object as the parameter
+//O: values of object returned as an array
+//C:
+//E:
+//Initialize function with object as the param
 function objectValues(object) {
-    // code
+    //create for in loop to access values in object
+    for (keys in object){
+        //return object values
+     return Object.values(object);
+}
+    
+  
 } 
 
 //////////////////////////////////////////////////////////////////////
 // Function 2 - Keys to String ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+//I: function with one param representing an object
+//O: return object keys in a string separated by spaces
+//C:
+//E:
 function keysToString(object) {
+// use object keys to separate object into array join method to concatenate new array into a string separated by spaces 
+    return Object.keys(object).join(' ');
+
 
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 3 - Values to String /////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+// I: function with object as the parameter
+//O: string with the values of the object separated by spaces 
 function valuesToString(object) {
-    
+    //create empty array
+    var theArray = [];
+    // assign variable to hold Object.values to create array 
+    var  anArray = Object.values(object);
+    //create if loop to loop over the array
+    for(var i = 0; i <= anArray.length; i++ ){
+        //create conditional statement to using type of to determine if array element is string
+        if (typeof anArray[i] === 'string'){
+          theArray.push(anArray[i]);
+        }
+    } return theArray.join(' ');
+
+
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 4 - Array or Object //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+// I: input function with one parameter
+//O: should return 'array' or 'object' depending on the argument passed through function
+//C:
+//E:
 function arrayOrObject(collection) {
+    // create conditional statement to determine typeof argument
+    if (Array.isArray(collection) === true){
+        return 'array';
+    }
+    else if(typeof collection === 'object' && typeof collection !== null){
+        return 'object';
+    }
     
+ 
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 5 - Capitalize Word //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+//I: function that takes one param representing as string
+//O: returns string with first letter capitalized
+//C:
+//E:
 function capitalizeWord(string) {
+    // return string with cap first letter 
+    return string.charAt(0).toUpperCase() + string.slice(1);
+    
+    
+     
     
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 6 - Capitalize All Words /////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+//I: function with one param represented as string
+//O: return one string with all words in caps
+//C: the first letter of each word should be capitalized
+//E: 
 function capitalizeAllWords(string) {
+    // init var and use split to turn string into an array
+    var splitString = string.split()
+    // use array.map to capitalize each first letter
+    
+    //
+     
     
 }
 
