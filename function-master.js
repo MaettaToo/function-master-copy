@@ -95,10 +95,15 @@ function capitalizeWord(string) {
 //E: 
 function capitalizeAllWords(string) {
     // init var and use split to turn string into an array
-    var splitString = string.split()
-    // use array.map to capitalize each first letter
-    
-    //
+    var stringArray = string.split(' ');
+    //init empty array
+    var emptyArray = [];
+    // use map to capitalize each word and return new array
+    stringArray.map((word) => {
+        emptyArray.push(word[0].toUpperCase() + word.slice(1).toLowerCase());
+      });
+    //return joined strings 
+    return emptyArray.join(' ');
      
     
 }
@@ -106,57 +111,156 @@ function capitalizeAllWords(string) {
 //////////////////////////////////////////////////////////////////////
 // Function 7 - Welcome Message //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+//I: function with object parameter 
+//O: return string welcome + value of name key
+//C:
+//E:
 function welcomeMessage(object) {
+//return 'Welcome plus value of the name key'
+return 'Welcome ' + object['name'].charAt(0).toUpperCase() + object['name'].slice(1) + '!';
+
 
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 8 - Profile Info /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+//I: function with one param represented as object
+//O: return string with name value 'is a' species value 
+//C: first letter of name and first letter of species need to be capialized
+//E:
 function profileInfo(object) {
+    // init var name to hold capitalization of name
+    var name = object['name'].charAt(0).toUpperCase() + object['name'].slice(1);
+    //init var species to hold capitalization of species 
+    var species = object['species'].charAt(0).toUpperCase() + object['species'].slice(1)
+    // return string name is a species 
+    return name + ' is a ' + species;
 
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 9 - Maybe Noises /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+//I: function with one param repped as object
+//O:  string with animal noises if there is an array, string ' there are no noises' if no array
+//C: animal noise must be separated by space 
+//E: the array is empty, noises is not part of the object
 function maybeNoises(object) {
+    // create conditional statement to determine if  noise property is array
+    if (Array.isArray(object['noises']) &&  object['noises'].length !== 0){
+        //return value of noise array as strings joined by spaces
+        return object['noises'].join(' ');
+    }   // create conditional statement to determine if  noise property is array and empty   
+    if (Array.isArray(object['noises']) && object['noises'].length === 0) {
+        return 'there are no noises';
+        // else stmt for all other factors
+    } else{
+        return 'there are no noises';
+    }
+    
 
+    
+    
+     
 }
-
 //////////////////////////////////////////////////////////////////////
 // Function 10 - Has Words ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+//I: function with two parameters represented as strings
+//O: boolean true  or false dependent upon if  there is a match within the parameters
+//C:
+//E:
 function hasWord(string, word) {
+    // init var as empty array to collect new array
+    var stringArray = [];
+    // Use split to convert string into an array
+    stringArray = string.split(' ');
+    // init for loop to access array values, conditions begin index i, end length of array, increment ++
+    for(var i = 0; i < stringArray.length; i++){
+    //create conditional stmt to compare each index of the array to word 
+    if( stringArray[i] === word){
+        return true;
+    }
+    // if loop conditions are not met return false
+    } return false;
+
+   
 
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 11 - Add Friend //////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+//I: function with two parameters represented as object and string
+//O: return  object with string added to object friends  array
+//C:
+//E:
 function addFriend (name, object) {
+    // create for in loop to loop over object 
+    for( var key in object){
+    // push string to friends array 
+        object['friends'].push(name);
+    }
+     //return object
+    return object;
+    
+   
 
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 12 - Is Friend ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+//I: function with two parameters represented as object and string
+//O: return boolean true or false dependent upon if name is part of the friends array
+//C:
+//E:
 function isFriend(name, object) {
+    
+// use for in loop to iterate over object and compare values. 
+        for(var key in object){
+    // create conditional statement  using .includes to test if friends array includes name]
+        if (object['friends'].includes(name)){
+            return true;
+        }
+    }
+    
+    return false;
+    
 
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 13 - Non-Friends /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+//I:functon with two params represented as array and string
+//O: return array with names of people not included in the original array 
+//C:
+//E:
 function nonFriends(name, array) {
-
+    // init var as emprty array to collect values
+    var collectValues = []; 
+    //init var to collect name values
+    var nameValuesArray = [];
+     
+    // init for loop to iterate over the loop begin zero index, end length of array, increment by 1
+    for( var i = 0; i < array.length; i++){
+    // init conditional stmt if name does not equal array[i]
+    //access the object at the name key compare the friends value in that object
+    // to the names(keys)value in the other objects, if the friends value don't contain the names value 
+    //push the names to collectValues 
+    // for index 0 we compare the friends array to  
+     
+        if(!array[i]['friends'].includes(name)){
+            // push array[i] into collectValues 
+            collectValues.push();
+        }
+    }
+    
+    
+    // return collectValues
+    return collectValues;
 }
 
 //////////////////////////////////////////////////////////////////////
