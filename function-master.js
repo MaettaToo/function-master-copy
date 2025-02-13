@@ -252,9 +252,9 @@ function nonFriends(name, array) {
     //push the names to collectValues 
     // for index 0 we compare the friends array to  
      
-        if(!array[i]['friends'].includes(name)){
+        if(!array[i]['friends'].includes(name) && array[i]['name'] !== name){
             // push array[i] into collectValues 
-            collectValues.push();
+            collectValues.push(array[i]['name']);
         }
     }
     
@@ -266,25 +266,70 @@ function nonFriends(name, array) {
 //////////////////////////////////////////////////////////////////////
 // Function 14 - Update Object ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+//I: function with one param reprresented as object
+//O: return object with either an updated key value pair or newly added key value pair
+//C: 
+//E:
 function updateObject(object, key, value) {
-
+    // update the keys of the object 
+    object[key] = value;
+   //create conditional stmt to add new keys to the object
+    if(object.hasOwnProperty(key) === false){
+        object[key] = value;
+    }
+//eturn object
+return object;
 }
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 15 - Remove Properties ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+//I: function with two inputs represented as obaject and an array 
+//O: return object with properties removed if they are in the array
+//C:
+//E:
 function removeProperties(object, array) {
-
+    // init for in loop to access the keys in object
+  for( var key in object){
+    //create if stmt using includes to determine if key is in array
+        if(array.includes(key)){ 
+        delete object[key];
+        }
+    } 
+//return object
+ return object;
 }
+//
+// create if stmt to test if keys in object equals values in array 
+//if keys in object equals values in array delete the matching keys 
+
+//use object values to compare  
+//Should remove any properties on <object> that are listed in <array
+
+//return object;
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 16 - Dedup ///////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+//I: function with one parameter represented as array
+//O: array with duplicate elements removed
+//C:
+//E:
 function dedup(array) {
-
+    //init var as empty array to collect new elements
+        var collectValues = [];
+        //init for loop to access values of array
+        for (let i = 0; i < array.length; i++) {
+            //create conditional stmt using includes to determine duplicates
+          if (!collectValues.includes(array[i])) {
+            // push non duplicate values to collectValues
+            collectValues.push(array[i]);
+          }
+        }// return collectValues
+        return collectValues;
+      
 }
 
 //////////////////////////////////////////////////////////////////////
