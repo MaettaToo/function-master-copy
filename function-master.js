@@ -285,7 +285,7 @@ return object;
 //////////////////////////////////////////////////////////////////////
 // Function 15 - Remove Properties ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-//I: function with two inputs represented as obaject and an array 
+//I: function with two inputs represented as object and an array 
 //O: return object with properties removed if they are in the array
 //C:
 //E:
